@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import PersonalInfo from "./components/PersonalInfo";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [info, setInfo] = useState({
+    name: "John Doe",
+    email: "mail@mail.com",
+    phoneNum: "012345678910",
+    linkedIn: "test",
+  });
+
+  function updateName(e) {
+    setInfo({
+      ...info,
+      name: e.target.value,
+    });
+  }
+
+  function updateEmail(e) {
+    setInfo({
+      ...info,
+      email: e.target.value,
+    });
+  }
+
+  function updatephoneNum(e) {
+    setInfo({
+      ...info,
+      phoneNum: e.target.value,
+    });
+  }
+  function updateLinkedIn(e) {
+    setInfo({
+      ...info,
+      linkedIn: e.target.value,
+    });
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div id="editSection">
+        <PersonalInfo
+          info={info}
+          handleNameChange={updateName}
+          handleEmailChange={updateEmail}
+          handlePhoneNumChange={updatephoneNum}
+          handleLinkedInChange={updateLinkedIn}
+        ></PersonalInfo>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
