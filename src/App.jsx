@@ -8,7 +8,7 @@ function App() {
     name: "John Doe",
     email: "mail@mail.com",
     phoneNum: "012345678910",
-    linkedIn: "none",
+    linkedIn: "",
   });
 
   function updateName(e) {
