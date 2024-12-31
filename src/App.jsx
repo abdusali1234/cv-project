@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PersonalInfo from "./components/PersonalInfo";
+import CurriculumVitae from "./components/CurriculumVitate";
 import "./App.css";
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
     name: "John Doe",
     email: "mail@mail.com",
     phoneNum: "012345678910",
-    linkedIn: "test",
+    linkedIn: "none",
   });
 
   function updateName(e) {
@@ -47,6 +48,9 @@ function App() {
           handlePhoneNumChange={updatephoneNum}
           handleLinkedInChange={updateLinkedIn}
         ></PersonalInfo>
+      </div>
+      <div id="cvDisplay">
+        <CurriculumVitae info={info}></CurriculumVitae>
       </div>
     </>
   );
