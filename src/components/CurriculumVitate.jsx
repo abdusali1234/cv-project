@@ -10,14 +10,18 @@ function CurriculumVitae({ info }) {
           <h1 id="name">{info.name}</h1>
           <div id="otherDetails">
             <div>
-              <FaPhone /> {info.phoneNum} |{" "}
+              <FaPhone /> <span>{info.phoneNum}</span> |{" "}
             </div>
             <div>
-              <MdEmail /> {info.email} |{" "}
+              <MdEmail /> <span>{info.email}</span> |{" "}
             </div>
 
             <div>
-              {info.linkedIn !== "" ? <FaLinkedin /> : ""} {info.linkedIn}
+              {info.linkedIn && (
+                <>
+                  <FaLinkedin /> <span>{info.linkedIn}</span>
+                </>
+              )}{" "}
             </div>
           </div>
         </div>
