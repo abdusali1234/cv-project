@@ -2,6 +2,7 @@ import { useState } from "react";
 import PersonalInfoInput from "./components/PersonalInfo";
 import CurriculumVitae from "./components/CurriculumVitate";
 import WorkExperienceInput from "./components/WorkExperience.jsx";
+import EducationInput from "./components/Education.jsx";
 import { FaPlusSquare } from "react-icons/fa";
 import "./App.css";
 
@@ -13,6 +14,16 @@ function App() {
     linkedIn: "",
   });
 
+  const [educations, setEducations] = useState([
+    {
+      schoolName: "Krusty's clown school",
+      studyTitle: "Bachelors in clownery",
+      startDate: "Sept 1995",
+      endDate: "Jun 1998",
+      description: "Masters thesis: To Seltzer or Not to Seltzer?",
+    },
+  ]);
+
   const [experiences, setExperiences] = useState([
     {
       companyName: "Macrohard",
@@ -23,6 +34,8 @@ function App() {
     },
   ]);
 
+  // PERSONAL INFO
+
   function updatePersonalInfo(e) {
     // You can get attributes from event.target via an object. AMAZING!!!
     const { name, value } = e.target;
@@ -32,6 +45,37 @@ function App() {
     });
     console.log(name, value);
   }
+
+  // EDUCATION
+
+  function addEducation() {
+    let newEd = {
+      schoolName: "School name",
+      studyTitle: "Title of study",
+      startDate: "Start Date",
+      endDate: "End date (or enter present/ongoing)",
+      description: "Did some stuff inniittt",
+    };
+    setEducations((ed) => [...ed, newEd]);
+  }
+
+  function deleteEducation(index) {
+    const updatedEds = educations.filter((_, i) => index !== i);
+    setEducations(updatedEds);
+  }
+
+  function updateEducation(index, e) {
+    const { name, value } = e.target;
+    console.log(name, value);
+    const updatedEds = [...educations];
+    updatedEds[index] = {
+      ...updatedEds[index],
+      [name]: value,
+    };
+    setExperiences(updatedEds);
+  }
+
+  // WORK EXPERIENCE
 
   function addWorkExperience() {
     let newWorkExp = {
@@ -66,6 +110,20 @@ function App() {
           info={info}
           handleChange={updatePersonalInfo}
         ></PersonalInfoInput>
+
+        {educations.map((experience, index) => (
+          <EducationInput
+            key={index}
+            index={index}
+            info={experience}
+            handleChange={(e) => updateEducation(index, e)}
+            handleDelete={() => deleteEducation(index)}
+          ></EducationInput>
+        ))}
+        <h1>
+          <FaPlusSquare onClick={addEducation} />
+        </h1>
+
         {experiences.map((experience, index) => (
           <WorkExperienceInput
             key={index}
