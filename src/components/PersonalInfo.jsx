@@ -2,13 +2,7 @@ import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 
-export default function PersonalInfo({
-  info,
-  handleNameChange,
-  handleEmailChange,
-  handlePhoneNumChange,
-  handleLinkedInChange,
-}) {
+export default function PersonalInfoInput({ info, handleChange }) {
   return (
     <>
       <div>
@@ -16,19 +10,39 @@ export default function PersonalInfo({
         <form>
           <label>
             Name
-            <input value={info.name} onChange={handleNameChange} />
+            <input
+              id="fullName"
+              name="fullName"
+              value={info.fullName}
+              onChange={handleChange}
+            />
           </label>
           <label>
             Email <MdEmail />
-            <input value={info.email} onChange={handleEmailChange} />
+            <input
+              id="email"
+              name="email"
+              value={info.email}
+              onChange={handleChange}
+            />
           </label>
           <label>
             Phone Number <FaPhone />
-            <input value={info.phoneNum} onChange={handlePhoneNumChange} />
+            <input
+              id="phone"
+              name="phone"
+              value={info.phoneNum}
+              onChange={handleChange}
+            />
           </label>
           <label>
             LinkedIn <FaLinkedin />
-            <input value={info.linkedIn} onChange={handleLinkedInChange} />
+            <input
+              id="linkedIn"
+              name="linkedIn"
+              value={info.linkedIn}
+              onChange={handleChange}
+            />
           </label>
         </form>
       </div>

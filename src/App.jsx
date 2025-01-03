@@ -1,54 +1,36 @@
 import { useState } from "react";
-import PersonalInfo from "./components/PersonalInfo";
+import PersonalInfoInput from "./components/PersonalInfo";
 import CurriculumVitae from "./components/CurriculumVitate";
-import WorkExperience from "./components/WorkExperience.jsx";
+import WorkExperienceInput from "./components/WorkExperience.jsx";
+import { FaPlusSquare } from "react-icons/fa";
 import "./App.css";
 
 function App() {
   const [info, setPersonalInfo] = useState({
-    name: "John Doe",
+    fullName: "John Doe",
     email: "mail@mail.com",
     phoneNum: "012345678910",
     linkedIn: "",
   });
 
-  const [experience, setExperience] = useState([
+  const [experiences, setExperiences] = useState([
     {
       companyName: "Macrohard",
       positionTitle: "Chief Coffee Maker",
       startDate: "Jun 1999",
       endDate: "Present",
-      description: "",
+      description: "Applied the art of coffee enemas to CEO Mr Billiam Hates",
     },
   ]);
 
-  console.log(experience.length);
-
-  function updateName(e) {
+  function updatePersonalInfo(e) {
+    // You can get attributes from event.target via an object. AMAZING!!!
+    const { name, value } = e.target;
     setPersonalInfo({
       ...info,
-      name: e.target.value,
+      [name]: value,
     });
-  }
-
-  function updateEmail(e) {
-    setPersonalInfo({
-      ...info,
-      email: e.target.value,
-    });
-  }
-
-  function updatephoneNum(e) {
-    setPersonalInfo({
-      ...info,
-      phoneNum: e.target.value,
-    });
-  }
-  function updateLinkedIn(e) {
-    setPersonalInfo({
-      ...info,
-      linkedIn: e.target.value,
-    });
+    console.log(name, value);
   }
 
   function addWorkExperience() {
@@ -56,92 +38,52 @@ function App() {
       companyName: "Company name",
       positionTitle: "Position title",
       startDate: "Start Date",
-      EndDate: "End date (or enter present/ongoing)",
+      endDate: "End date (or enter present/ongoing)",
+      description: "Did some stuff inniittt",
     };
-    setExperience((workExp) => [...workExp, newWorkExp]);
+    setExperiences((workExp) => [...workExp, newWorkExp]);
   }
 
   function deleteWorkExperience(index) {
-    setExperience(experience.filter((workExp, i) => index != i));
+    const updatedExperiences = experiences.filter((_, i) => index !== i);
+    setExperiences(updatedExperiences);
   }
 
-  function updateWorkExperience(updatedWorkExp, index) {
-    setExperience(
-      experience.map((workExp, i) => {
-        index === i ? updatedWorkExp : workExp;
-      })
-    );
+  function updateWorkExperience(index, e) {
+    const { name, value } = e.target;
+    const updatedExperiences = [...experiences];
+    updatedExperiences[index] = {
+      ...updatedExperiences[index],
+      [name]: value,
+    };
+    setExperiences(updatedExperiences);
   }
-
-  function updateCompName(e) {
-    setExperience({
-      ...experience,
-      companyName: e.target.value,
-    });
-  }
-
-  function updateTitle(e) {
-    setExperience({
-      ...experience,
-      positionTitle: e.target.value,
-    });
-  }
-
-  function updateStartDate(e) {
-    setExperience({
-      ...experience,
-      startDate: e.target.value,
-    });
-  }
-
-  function updateEndDate(e) {
-    setExperience({
-      ...experience,
-      endDate: e.target.value,
-    });
-  }
-
-  function updateDescription(e) {
-    setExperience({
-      ...experience,
-      description: e.target.value,
-    });
-  }
-
-  const experiences = [];
-
-  for (let i = 0; i < experience.length; i++) {
-    experiences.push(
-      <WorkExperience
-        key={i}
-        index={i}
-        info={experience[i]}
-        handleCompanyNameChange={updateCompName}
-        handleTitleChange={updateTitle}
-        handleStartDateChange={updateStartDate}
-        handleEndDateChange={updateEndDate}
-        handleDescriptionChange={updateDescription}
-      ></WorkExperience>
-    );
-  }
-
-  console.log(experiences);
 
   return (
     <>
       <div id="editSection">
-        <PersonalInfo
+        <PersonalInfoInput
           info={info}
-          handleNameChange={updateName}
-          handleEmailChange={updateEmail}
-          handlePhoneNumChange={updatephoneNum}
-          handleLinkedInChange={updateLinkedIn}
-          onDelete={deleteWorkExperience}
-        ></PersonalInfo>
+          handleChange={updatePersonalInfo}
+        ></PersonalInfoInput>
+        {experiences.map((experience, index) => (
+          <WorkExperienceInput
+            key={index}
+            index={index}
+            info={experience}
+            handleChange={(e) => updateWorkExperience(index, e)}
+            handleDelete={() => deleteWorkExperience(index)}
+          ></WorkExperienceInput>
+        ))}
+        <h1>
+          <FaPlusSquare onClick={addWorkExperience} />
+        </h1>
       </div>
       <div id="cvDisplay">
-        <CurriculumVitae info={info}></CurriculumVitae>
-        {experiences}
+        <CurriculumVitae
+          personalInfo={info}
+          workExperiences={experiences}
+        ></CurriculumVitae>
       </div>
     </>
   );
