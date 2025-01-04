@@ -8,42 +8,40 @@ export default function PersonalInfoInput({ info, handleChange }) {
       <div>
         <h1>Personal Information</h1>
         <form>
-          <label>
-            Name
-            <input
-              id="fullName"
-              name="fullName"
-              value={info.fullName}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
+          <label htmlFor="fullName">Name</label>
+          <input
+            id="fullName"
+            name="fullName"
+            value={info.fullName}
+            onChange={handleChange}
+          />
+          <label htmlFor="email">
             Email <MdEmail />
-            <input
-              id="email"
-              name="email"
-              value={info.email}
-              onChange={handleChange}
-            />
           </label>
-          <label>
+          <input
+            id="email"
+            name="email"
+            value={info.email}
+            onChange={handleChange}
+          />
+          <label htmlFor="phone">
             Phone Number <FaPhone />
-            <input
-              id="phone"
-              name="phone"
-              value={info.phoneNum}
-              onChange={handleChange}
-            />
           </label>
-          <label>
+          <input
+            id="phone"
+            name="phone"
+            value={info.phoneNum}
+            onChange={handleChange}
+          />
+          <label htmlFor="linedIn">
             LinkedIn <FaLinkedin />
-            <input
-              id="linkedIn"
-              name="linkedIn"
-              value={info.linkedIn}
-              onChange={handleChange}
-            />
           </label>
+          <input
+            id="linkedIn"
+            name="linkedIn"
+            value={info.linkedIn}
+            onChange={handleChange}
+          />
         </form>
       </div>
     </>
