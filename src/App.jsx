@@ -141,6 +141,7 @@ function App() {
         <CurriculumVitae
           personalInfo={info}
           workExperiences={experiences}
+          educations={educations}
         ></CurriculumVitae>
       </div>
     </>

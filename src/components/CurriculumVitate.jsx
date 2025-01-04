@@ -2,7 +2,7 @@ import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 
-function CurriculumVitae({ personalInfo, workExperiences }) {
+function CurriculumVitae({ personalInfo, educations, workExperiences }) {
   return (
     <>
       <div id="curriculumVitae">
@@ -25,7 +25,25 @@ function CurriculumVitae({ personalInfo, workExperiences }) {
             </div>
           </div>
         </div>
+        <div id="education">
+          <h2 className="sectionTitle">Education</h2>
+          {educations.map((education, index) => (
+            <div
+              className="educationEntry"
+              id={`education-${index}`}
+              name="cvEducation"
+              key={index}
+            >
+              <div className="cvSchoolName">{education.schoolName}</div>
+              <div className="cvStudyTitle">{education.studyTitle}</div>
+              <div className="cvStartDate">{education.startDate}</div>
+              <div className="cvEndDate">{education.endDate}</div>
+              <div className="cvDescription">{education.description}</div>
+            </div>
+          ))}
+        </div>
         <div id="workExperience">
+          <h2 className="sectionTitle">Work Experience</h2>
           {workExperiences.map((experience, index) => (
             <div
               className="experienceEntry"
