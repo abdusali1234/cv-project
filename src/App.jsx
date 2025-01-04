@@ -72,7 +72,7 @@ function App() {
       ...updatedEds[index],
       [name]: value,
     };
-    setExperiences(updatedEds);
+    setEducations(updatedEds);
   }
 
   // WORK EXPERIENCE

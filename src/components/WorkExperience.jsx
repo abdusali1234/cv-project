@@ -16,51 +16,41 @@ export default function WorkExperienceInput({
         </h1>
         <div>
           <form>
-            <label>
-              Company Name
-              <input
-                id={`companyName-${index}`}
-                name="companyName"
-                value={info.companyName}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Position Title
-              <input
-                id={`positionTitle-${index}`}
-                name="positionTitle"
-                value={info.positionTitle}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Start Date
-              <input
-                id={`startDate-${index}`}
-                name="startDate"
-                value={info.startDate}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              End Date
-              <input
-                id={`endDate-${index}`}
-                name="endDate"
-                value={info.endDate}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Description
-              <textarea
-                id={`description-${index}`}
-                name="description"
-                value={info.description}
-                onChange={handleChange}
-              ></textarea>
-            </label>
+            <label htmlFor={`companyName-${index}`}>Company Name</label>
+            <input
+              id={`companyName-${index}`}
+              name="companyName"
+              value={info.companyName}
+              onChange={handleChange}
+            />
+            <label htmlFor={`positionTitle-${index}`}>Position Title</label>
+            <input
+              id={`positionTitle-${index}`}
+              name="positionTitle"
+              value={info.positionTitle}
+              onChange={handleChange}
+            />
+            <label htmlFor={`startDate-${index}`}>Start Date</label>
+            <input
+              id={`startDate-${index}`}
+              name="startDate"
+              value={info.startDate}
+              onChange={handleChange}
+            />
+            <label htmlFor={`endDate-${index}`}>End Date</label>
+            <input
+              id={`endDate-${index}`}
+              name="endDate"
+              value={info.endDate}
+              onChange={handleChange}
+            />
+            <label htmlFor={`description-${index}`}>Description</label>
+            <textarea
+              id={`description-${index}`}
+              name="description"
+              value={info.description}
+              onChange={handleChange}
+            ></textarea>
           </form>
         </div>
       </div>
