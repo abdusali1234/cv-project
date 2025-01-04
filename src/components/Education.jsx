@@ -16,51 +16,41 @@ export default function EducationInput({
         </h1>
         <div>
           <form>
-            <label>
-              Institution name
-              <input
-                id={`schoolName-${index}`}
-                name="schoolName"
-                value={info.schoolName}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Title of study
-              <input
-                id={`studyTitle-${index}`}
-                name="studyTitle"
-                value={info.schoolTitle}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Start Date
-              <input
-                id={`startDate-${index}`}
-                name="startDate"
-                value={info.startDate}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              End Date
-              <input
-                id={`endDate-${index}`}
-                name="endDate"
-                value={info.endDate}
-                onChange={handleChange}
-              />
-            </label>
-            <label>
-              Description
-              <textarea
-                id={`description-${index}`}
-                name="description"
-                value={info.description}
-                onChange={handleChange}
-              ></textarea>
-            </label>
+            <label htmlFor={`schoolName-${index}`}>Institution name</label>
+            <input
+              id={`schoolName-${index}`}
+              name="schoolName"
+              value={info.schoolName}
+              onChange={handleChange}
+            />
+            <label htmlFor={`studyTitle-${index}`}>Title of study</label>
+            <input
+              id={`studyTitle-${index}`}
+              name="studyTitle"
+              value={info.schoolTitle}
+              onChange={handleChange}
+            />
+            <label htmlFor={`startDate-${index}`}>Start Date</label>
+            <input
+              id={`startDate-${index}`}
+              name="startDate"
+              value={info.startDate}
+              onChange={handleChange}
+            />
+            <label htmlFor={`endDate-${index}`}>End Date</label>
+            <input
+              id={`endDate-${index}`}
+              name="endDate"
+              value={info.endDate}
+              onChange={handleChange}
+            />
+            <label htmlFor={`description-${index}`}>Description</label>
+            <textarea
+              id={`description-${index}`}
+              name="description"
+              value={info.description}
+              onChange={handleChange}
+            ></textarea>
           </form>
         </div>
       </div>
