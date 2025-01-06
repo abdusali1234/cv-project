@@ -1,6 +1,7 @@
 @import url("./styles/PersonalInfo.css");
 @import url("./styles/Education.css");
 @import url("./styles/WorkExperience.css");
+@import url("./styles/CurriculumVitae.css");
 
 :root {
   --off-white: hsl(45, 29%, 97%);
@@ -72,4 +73,8 @@
   border-radius: 0.5em;
   padding: 0.25em;
   margin: 0.25em;
+}
+
+hr {
+  margin: auto 100px;
 }

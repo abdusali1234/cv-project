@@ -1,0 +1,84 @@
+#curriculumVitae {
+  display: flex;
+  flex-direction: column;
+}
+
+#personalDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+#otherPersonalDetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5em;
+}
+
+#education,
+#workExperience {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.sectionTitle {
+  display: flex;
+}
+
+.underline {
+  flex-grow: 1;
+  border-bottom: 1px solid black;
+}
+
+.educationEntry,
+.experienceEntry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 1fr;
+  /* justify-content: center;
+  align-items: center; */
+  margin: 0;
+  padding: 0;
+}
+
+.cvCompanyName,
+.cvSchoolName {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cvDates {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cvStudyTitle,
+.cvPositionTitle {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-style: italic;
+}
+
+.cvDescription {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row: 3 3;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+}

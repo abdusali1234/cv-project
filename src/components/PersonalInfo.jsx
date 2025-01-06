@@ -32,8 +32,8 @@ export default function PersonalInfoInput({ info, handleChange }) {
             </div>
           </label>
           <input
-            id="phone"
-            name="phone"
+            id="phoneNum"
+            name="phoneNum"
             value={info.phoneNum}
             onChange={handleChange}
           />

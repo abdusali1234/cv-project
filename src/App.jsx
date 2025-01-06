@@ -135,7 +135,7 @@ function App() {
               handleDelete={() => deleteWorkExperience(index)}
             ></WorkExperienceInput>
           ))}
-          <button className="addEntry" onClick={addEducation}>
+          <button className="addEntry" onClick={addWorkExperience}>
             <h2 className="iconContainer">
               Add Experience
               <FaPlusSquare />
