@@ -13,13 +13,13 @@ function CurriculumVitae({ personalInfo, educations, workExperiences }) {
               <FaPhone /> <span>{personalInfo.phoneNum}</span> |{" "}
             </div>
             <div>
-              <MdEmail /> <span>{personalInfo.email}</span> |{" "}
+              <MdEmail /> <span>{personalInfo.email}</span>
             </div>
 
             <div>
               {personalInfo.linkedIn && (
                 <>
-                  <FaLinkedin /> <span>{personalInfo.linkedIn}</span>
+                  | <FaLinkedin /> <span>{personalInfo.linkedIn}</span>
                 </>
               )}{" "}
             </div>

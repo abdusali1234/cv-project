@@ -5,7 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 export default function PersonalInfoInput({ info, handleChange }) {
   return (
     <>
-      <div>
+      <div id="PersonalInfoInput">
         <h1>Personal Information</h1>
         <form>
           <label htmlFor="fullName">Name</label>
@@ -16,7 +16,9 @@ export default function PersonalInfoInput({ info, handleChange }) {
             onChange={handleChange}
           />
           <label htmlFor="email">
-            Email <MdEmail />
+            <div className="iconContainer">
+              Email <MdEmail />
+            </div>
           </label>
           <input
             id="email"
@@ -25,7 +27,9 @@ export default function PersonalInfoInput({ info, handleChange }) {
             onChange={handleChange}
           />
           <label htmlFor="phone">
-            Phone Number <FaPhone />
+            <div className="iconContainer">
+              Phone Number <FaPhone />
+            </div>
           </label>
           <input
             id="phone"
@@ -34,7 +38,9 @@ export default function PersonalInfoInput({ info, handleChange }) {
             onChange={handleChange}
           />
           <label htmlFor="linedIn">
-            LinkedIn <FaLinkedin />
+            <div className="iconContainer">
+              LinkedIn <FaLinkedin />
+            </div>
           </label>
           <input
             id="linkedIn"

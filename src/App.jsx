@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PersonalInfoInput from "./components/PersonalInfo";
-import CurriculumVitae from "./components/CurriculumVitate";
+import CurriculumVitae from "./components/CurriculumVitae";
 import WorkExperienceInput from "./components/WorkExperience.jsx";
 import EducationInput from "./components/Education.jsx";
 import { FaPlusSquare } from "react-icons/fa";
@@ -43,7 +43,6 @@ function App() {
       ...info,
       [name]: value,
     });
-    console.log(name, value);
   }
 
   // EDUCATION
@@ -66,7 +65,6 @@ function App() {
 
   function updateEducation(index, e) {
     const { name, value } = e.target;
-    console.log(name, value);
     const updatedEds = [...educations];
     updatedEds[index] = {
       ...updatedEds[index],
@@ -105,44 +103,56 @@ function App() {
 
   return (
     <>
-      <div id="editSection">
-        <PersonalInfoInput
-          info={info}
-          handleChange={updatePersonalInfo}
-        ></PersonalInfoInput>
+      <div id="editScroll">
+        <div id="editSection">
+          <PersonalInfoInput
+            info={info}
+            handleChange={updatePersonalInfo}
+          ></PersonalInfoInput>
 
-        {educations.map((experience, index) => (
-          <EducationInput
-            key={index}
-            index={index}
-            info={experience}
-            handleChange={(e) => updateEducation(index, e)}
-            handleDelete={() => deleteEducation(index)}
-          ></EducationInput>
-        ))}
-        <h1>
-          <FaPlusSquare onClick={addEducation} />
-        </h1>
+          {educations.map((experience, index) => (
+            <EducationInput
+              key={index}
+              index={index}
+              info={experience}
+              handleChange={(e) => updateEducation(index, e)}
+              handleDelete={() => deleteEducation(index)}
+            ></EducationInput>
+          ))}
+          <button className="addEntry" onClick={addEducation}>
+            <h2 className="iconContainer">
+              Add Education
+              <FaPlusSquare />
+            </h2>
+          </button>
 
-        {experiences.map((experience, index) => (
-          <WorkExperienceInput
-            key={index}
-            index={index}
-            info={experience}
-            handleChange={(e) => updateWorkExperience(index, e)}
-            handleDelete={() => deleteWorkExperience(index)}
-          ></WorkExperienceInput>
-        ))}
-        <h1>
-          <FaPlusSquare onClick={addWorkExperience} />
-        </h1>
+          {experiences.map((experience, index) => (
+            <WorkExperienceInput
+              key={index}
+              index={index}
+              info={experience}
+              handleChange={(e) => updateWorkExperience(index, e)}
+              handleDelete={() => deleteWorkExperience(index)}
+            ></WorkExperienceInput>
+          ))}
+          <button className="addEntry" onClick={addEducation}>
+            <h2 className="iconContainer">
+              Add Experience
+              <FaPlusSquare />
+            </h2>
+          </button>
+        </div>
       </div>
-      <div id="cvDisplay">
-        <CurriculumVitae
-          personalInfo={info}
-          workExperiences={experiences}
-          educations={educations}
-        ></CurriculumVitae>
+      <div id="cvScroll">
+        <div id="cvSection">
+          <div id="cvContainer">
+            <CurriculumVitae
+              personalInfo={info}
+              workExperiences={experiences}
+              educations={educations}
+            ></CurriculumVitae>
+          </div>
+        </div>
       </div>
     </>
   );

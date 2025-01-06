@@ -1,10 +1,75 @@
-body {
-  display: flex;
+@import url("./styles/PersonalInfo.css");
+@import url("./styles/Education.css");
+@import url("./styles/WorkExperience.css");
+
+:root {
+  --off-white: hsl(45, 29%, 97%);
+  --off-black: hsl(0, 0%, 19%);
+  --green: rgb(169, 196, 108);
 }
 
 #root {
   max-width: 1280px;
+  height: 100vh;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  font-family: Roboto;
+}
+
+#editScroll,
+#idScroll {
+  height: 100%;
+  overflow-y: scroll;
+  padding: 0;
+}
+
+#cvScroll {
+  background-color: var(--off-black);
+}
+
+#editSection {
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--off-white);
+}
+
+#cvSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--off-black);
+}
+
+#cvContainer {
+  width: 75%;
+  height: 75%;
+  background-color: var(--off-white);
+}
+
+/* for input label & icon in forms */
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5em;
+}
+
+.deleteBin {
+  color: red;
+  cursor: pointer;
+}
+
+.addEntry {
+  border: none;
+  background-color: var(--green);
+  border-radius: 0.5em;
+  padding: 0.25em;
+  margin: 0.25em;
 }
